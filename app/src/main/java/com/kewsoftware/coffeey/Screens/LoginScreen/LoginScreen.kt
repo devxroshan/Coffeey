@@ -55,7 +55,7 @@ import java.nio.file.WatchEvent
 
 
 @Composable
-fun LoginScreen(navigateToSignUp: () -> Unit){
+fun LoginScreen(navigateToSignUp: () -> Unit, onLogin: () -> Unit){
     var usernameOrEmail by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
 
@@ -87,7 +87,7 @@ fun LoginScreen(navigateToSignUp: () -> Unit){
                 )
             }
             Spacer(modifier = Modifier.height(6.dp))
-            Button(onClick = {}, modifier = Modifier.fillMaxWidth().height(52.dp), shape = RoundedCornerShape(12.dp)){
+            Button(onClick = onLogin, modifier = Modifier.fillMaxWidth().height(52.dp), shape = RoundedCornerShape(12.dp)){
                 Text("Login", color = Color.White, fontSize = 20.sp, fontWeight = FontWeight.SemiBold)
             }
 
@@ -104,7 +104,7 @@ fun LoginScreen(navigateToSignUp: () -> Unit){
 
             Spacer(modifier = Modifier.height(52.dp))
 
-            Button(onClick = {}, modifier = Modifier.fillMaxWidth().height(52.dp).border(
+            Button(onClick = onLogin, modifier = Modifier.fillMaxWidth().height(52.dp).border(
                 BorderStroke(3.dp, MaterialTheme.colorScheme.primary),
                 shape = RoundedCornerShape(12.dp)
             ), colors = ButtonDefaults.buttonColors(
@@ -177,6 +177,6 @@ fun CustomOutlineTextField(
 @Composable
 fun LoginPreview(){
     CoffeeyTheme {
-        LoginScreen({ true } )
+        LoginScreen({ true }, { true } )
     }
 }

@@ -55,7 +55,7 @@ import java.nio.file.WatchEvent
 
 
 @Composable
-fun SignUpScreen(navigateToLogin: () -> Unit){
+fun SignUpScreen(navigateToLogin: () -> Unit, onSignUp: () -> Unit){
     var name by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }
     var phoneNumber by remember { mutableStateOf("") }
@@ -83,7 +83,7 @@ fun SignUpScreen(navigateToLogin: () -> Unit){
             CustomOutlineTextField("Password", isPassword = true, fieldValue = password, onValueChange = { password = it })
 
             Spacer(modifier = Modifier.height(16.dp))
-            Button(onClick = {}, modifier = Modifier.fillMaxWidth().height(52.dp), shape = RoundedCornerShape(12.dp)){
+            Button(onClick = onSignUp, modifier = Modifier.fillMaxWidth().height(52.dp), shape = RoundedCornerShape(12.dp)){
                 Text("Sign Up", color = Color.White, fontSize = 20.sp, fontWeight = FontWeight.SemiBold)
             }
 
@@ -100,7 +100,7 @@ fun SignUpScreen(navigateToLogin: () -> Unit){
 
             Spacer(modifier = Modifier.height(52.dp))
 
-            Button(onClick = {}, modifier = Modifier.fillMaxWidth().height(52.dp).border(
+            Button(onClick = onSignUp, modifier = Modifier.fillMaxWidth().height(52.dp).border(
                 BorderStroke(3.dp, MaterialTheme.colorScheme.primary),
                 shape = RoundedCornerShape(12.dp)
             ), colors = ButtonDefaults.buttonColors(
@@ -173,6 +173,6 @@ fun CustomOutlineTextField(
 @Composable
 fun SignUpScreenPreview(){
     CoffeeyTheme {
-        SignUpScreen({ true })
+        SignUpScreen({ true }, { true })
     }
 }

@@ -88,7 +88,7 @@ fun CoffeeCard(Img: Int, coffeeName: String, coffeeDescription:String, price: St
                             containerColor = MaterialTheme.colorScheme.primary,
                             contentColor = Color.White
                         ),
-                        modifier = Modifier.height(24.dp)
+                        modifier = Modifier.height(32.dp)
                     ) {
                         Text(
                             "Order Now",
@@ -109,7 +109,7 @@ fun CoffeeCard(Img: Int, coffeeName: String, coffeeDescription:String, price: St
                             width = 1.2.dp,
                             color = MaterialTheme.colorScheme.primary,
                             shape = RoundedCornerShape(6.dp)
-                        ).height(24.dp)
+                        ).height(32.dp)
                     ) {
                         Text(
                             "Add to Cart",
